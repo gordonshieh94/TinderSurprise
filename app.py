@@ -54,7 +54,7 @@ def login(profile_id):
 
 @app.route("/")
 @app.route("/<int:page>")
-def template_test(page=1):
+def template_test(page=0):
     cursor = conn.cursor()
     print (((page * 12) - 12, page * 12))
 
