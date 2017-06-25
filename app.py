@@ -16,10 +16,10 @@ conn = pymysql.connect(host="172.17.0.2", user="root", password="qazwsx", databa
 drop = "DROP TABLE IF EXISTS images; DROP TABLE IF EXISTS users"
 create_query = "CREATE TABLE users(user_id int primary key auto_increment, name varchar(256) UNIQUE)"
 create_img_table_query = "CREATE TABLE images(img_id int primary key auto_increment, user_id int, img_url varchar(256), happy DOUBLE, neutral DOUBLE, sad DOUBLE, FOREIGN KEY(user_id) REFERENCES users(user_id))"
-# with conn.cursor() as cursor:
-#     cursor.execute(drop)
-#     cursor.execute(create_query)
-#     cursor.execute(create_img_table_query)
+with conn.cursor() as cursor:
+    cursor.execute(drop)
+    cursor.execute(create_query)
+    cursor.execute(create_img_table_query)
 
 
 params = {

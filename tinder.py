@@ -24,10 +24,10 @@ def emotion(link):
 
 def scrape(conn, facebook_id, token):
     msession = pynder.Session(facebook_id=facebook_id, facebook_token=token)
-    msession.update_location(47.615699768066, -102.344497680661191781)
+    msession.update_location("49.282271699999995", "-123.11903769999999")
     cursor = conn.cursor()
     for item in msession.nearby_users():
-        msession.update_location(47.615699768066, -102.344497680661191781)
+        # msession.update_location(60.615699768066, -2.344497680661191781)
         print(item.name)
         try:
             cursor.execute("insert into users(name) values(%s)", (item.name,))
